@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+<meta charset="UTF-8"> <meta name="viewport" 
+content="width=device-width, initial-scale=1.0">
+ <title>Minha Estante de Livros</title>
+</head> 
+<body> <div class="container">
+     <h1>📚 Minha Estante de Livros</h1>
+
+<div class="form-cadastro"> 
+
+     <h2>Adicionar Novo Livro</h2>
+     <form action="/adicionar" method="post"> 
+          <input type="text" name="titulo" placeholder="Título do Livro" required> 
+          <input type="text" name="autor" placeholder="Autor(a)" required> 
+          <input type="submit" value="Adicionar à Estante">
+     </form> 
+
+</div> 
+<div class="lista-livros"> 
+    <h2>Livros Cadastrados ({{ livros|length }})</h2> 
+    <ul> {% for livro in livros|reverse %} <li> 
+        <div class="titulo">{{ livro.titulo }}</div> 
+        <div class="autor">por {{ livro.autor }}</div> 
+    </li> {% else %} <li>Nenhum livro na estante ainda.</li> 
+{% endfor %} </ul> </div> </div> </body>
+</html>
